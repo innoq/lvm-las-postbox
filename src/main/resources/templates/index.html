@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org" th:include="layout :: page">
+<html>
 
 <title>Index</title>
 
@@ -8,11 +7,13 @@
 
 <h1>Headline 1</h1>
 
-<div th:fragment="content">
+<div>
     <h2>Headline 2</h2>
 
     <ul>
-        <li th:each="message: ${messages}" th:text="${message}" />
+        {{# messages }}
+            <li>{{.}}</li>
+        {{/ messages }}
     </ul>
 </div>
 
