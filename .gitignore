@@ -13,3 +13,8 @@ target/
 *.iml
 .idea/
 /out/
+/node_modules
+/.eslintcache
+
+/src/main/resources/static
+*.log
