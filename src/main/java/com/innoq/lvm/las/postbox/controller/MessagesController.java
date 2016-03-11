@@ -13,7 +13,7 @@ import java.util.ArrayList;
  * Created by mjansing on 08/03/16.
  */
 @Controller
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin
 @RequestMapping("/m50000")
 public class MessagesController {
 
