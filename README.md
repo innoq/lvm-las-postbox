@@ -22,6 +22,9 @@ java -jar target/lvm-las-postbox-0.1.0-SNAPSHOT.jar
 
 Now you can visit http://localhost:9000 to see the application.
 
+During development you can run `vagrant rsync-auto` to copy all changes you make to
+the code into the box.
+
 ## JavaScript
 
 You need to have Node.js (5.X.X) installed. Run `npm install` to install all dependencies.

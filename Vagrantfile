@@ -8,6 +8,9 @@ Vagrant.configure(2) do |config|
 
   config.vm.network "forwarded_port", guest: 9000, host: 9000
 
+  config.vm.synced_folder ".", "/vagrant", type: "rsync",
+    rsync__exclude: [".git/", "node_modules/"]
+
   config.vm.provider "vmware_fusion" do |v|
     v.vmx["memsize"] = "2048"
     v.vmx["numvcpus"] = "2"
