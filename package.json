@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "postinstall": "npm run compile",
     "backend": "node --use-strict node_modules/lasrest",
     "lint": "eslint --cache src/main/frontend/index.js && lessc --npm-import --lint src/main/frontend/index.less && echo ✓",
     "compile": "npm run webpack && npm run less && npm run assets",
