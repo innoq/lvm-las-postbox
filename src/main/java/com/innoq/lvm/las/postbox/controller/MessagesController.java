@@ -1,6 +1,7 @@
 package com.innoq.lvm.las.postbox.controller;
 
 import com.innoq.lvm.las.postbox.model.Message;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +18,9 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/m50000")
 public class MessagesController {
 
+	@Value("${lasRestServiceUrl}")
+	private String lasRestServiceUrl;
+
 	@RequestMapping(path = "/messages", method = RequestMethod.GET)
 	public ModelAndView index() {
 		Message[] messages = getMessagesFromService();
@@ -30,13 +34,16 @@ public class MessagesController {
 	}
 
 	private Message[] getMessagesFromService() {
+		System.out.println("MessagesController.getMessagesFromService - lasRestServiceUrl: " + lasRestServiceUrl);
 		RestTemplate restTemplate = new RestTemplate();
-		return restTemplate.getForObject("http://localhost:5100/briefkasten/m50000/", Message[].class);
+		String serviceUri = lasRestServiceUrl + "/briefkasten/m50000/";
+		return restTemplate.getForObject(serviceUri, Message[].class);
 	}
 
 	private Message getMessageFromServiceByMessageId(long messageId) {
+		System.out.println("MessagesController.getMessageFromServiceByMessageId - lasRestServiceUrl: " + lasRestServiceUrl);
 		RestTemplate restTemplate = new RestTemplate();
-		String serviceUri = "http://localhost:5100/briefkasten/m50000/" + messageId;
+		String serviceUri = lasRestServiceUrl + "/briefkasten/m50000/" + messageId;
 		return restTemplate.getForObject(serviceUri, Message.class);
 	}
 }

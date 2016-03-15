@@ -2,3 +2,4 @@ server:
     port: 9000
     compression:
         enabled: true
+lasRestServiceUrl: "http://localhost:8080"
