@@ -27,17 +27,6 @@
 		  <groupId>org.springframework.boot</groupId>
 		  <artifactId>spring-boot-starter-thymeleaf</artifactId>
 	  </dependency>
-    <!--<dependency>-->
-      <!--<groupId>com.github.spullara.mustache.java</groupId>-->
-      <!--<artifactId>compiler</artifactId>-->
-      <!--<version>0.8.17</version>-->
-      <!--<optional>true</optional>-->
-    <!--</dependency>-->
-    <!--<dependency>-->
-      <!--<groupId>com.github.mjeanroy</groupId>-->
-      <!--<artifactId>springmvc-mustache</artifactId>-->
-      <!--<version>0.5.2</version>-->
-    <!--</dependency>-->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-devtools</artifactId>
