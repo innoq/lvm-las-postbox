@@ -11,7 +11,6 @@ import org.springframework.web.servlet.ModelAndView;
 public class PostboxController {
     @RequestMapping("/")
     public ModelAndView index() {
-		System.out.println("PostboxController.index");
 		return new ModelAndView("postbox/index");
     }
 }
