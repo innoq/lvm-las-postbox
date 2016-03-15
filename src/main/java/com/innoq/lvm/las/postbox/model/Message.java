@@ -12,7 +12,7 @@ public class Message {
 	@JsonProperty("entryId") // explicit json mapping
 	private int entryId;
 
-	@JsonProperty("entryUri") // explicit json mapping
+	@JsonProperty("entryURI") // explicit json mapping
 	private String entryUri;
 
 	@JsonProperty("datum")
