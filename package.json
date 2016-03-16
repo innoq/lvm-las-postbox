@@ -11,7 +11,7 @@
     "less-watch": "nodemon -e less --exec 'npm run less'"
   },
   "dependencies": {
-    "lasrest": "git@github.com:grueny/lasrest.git#a099f63c78fd019374ff2f0a9af1f57c0170ac83",
+    "lasrest": "grueny/lasrest#a099f63c78fd019374ff2f0a9af1f57c0170ac83",
     "eslint-config-standard": "^5.1.0",
     "eslint-plugin-promise": "^1.0.8",
     "eslint-plugin-standard": "^1.3.2",
