@@ -21,6 +21,9 @@ public class MessagesController {
 	@Value("${lasRestServiceUrl}")
 	private String lasRestServiceUrl;
 
+	@Value("${lasRocaUrl}")
+	private String lasRocaUrl;
+
 	@RequestMapping(path = "/messages", method = RequestMethod.GET)
 	public ModelAndView index() {
 		Message[] messages = getMessagesFromService();
@@ -37,7 +40,12 @@ public class MessagesController {
 		System.out.println("MessagesController.getMessagesFromService - lasRestServiceUrl: " + lasRestServiceUrl);
 		RestTemplate restTemplate = new RestTemplate();
 		String serviceUri = lasRestServiceUrl + "/briefkasten/m50000/";
-		return restTemplate.getForObject(serviceUri, Message[].class);
+		Message[] messages = restTemplate.getForObject(serviceUri, Message[].class);
+		for (Message m : messages) {
+			String newUrl = lasRocaUrl + "/partners/" + m.getPartnerId() + "/contracts/" + m.getReferenceId();
+			m.setReferenceUri(newUrl);
+		}
+		return messages;
 	}
 
 	private Message getMessageFromServiceByMessageId(long messageId) {

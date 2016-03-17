@@ -3,3 +3,4 @@ server:
     compression:
         enabled: true
 lasRestServiceUrl: "http://localhost:8080"
+lasRocaUrl: "http://localhost:8080"
