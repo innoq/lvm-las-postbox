@@ -9,11 +9,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Message {
+	@JsonProperty("userId") // explicit json mapping
+	private String userId;
+
 	@JsonProperty("entryId") // explicit json mapping
 	private int entryId;
-
-	@JsonProperty("entryURI") // explicit json mapping
-	private String entryUri;
 
 	@JsonProperty("datum")
 	private String date;
@@ -25,10 +25,21 @@ public class Message {
 	private String reference;
 
 	@JsonProperty("bezugId")
-	private String referenceId;
+	private int referenceId;
 
-	@JsonProperty("bezugsUri")
+	@JsonProperty("bezugURI")
 	private String referenceUri;
+
+	@JsonProperty("partnerId")
+	private int partnerId;
+
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
 
 	public int getEntryId() {
 		return entryId;
@@ -36,14 +47,6 @@ public class Message {
 
 	public void setEntryId(int entryId) {
 		this.entryId = entryId;
-	}
-
-	public String getEntryUri() {
-		return entryUri;
-	}
-
-	public void setEntryUri(String entryUri) {
-		this.entryUri = entryUri;
 	}
 
 	public String getDate() {
@@ -70,11 +73,11 @@ public class Message {
 		this.reference = reference;
 	}
 
-	public String getReferenceId() {
+	public int getReferenceId() {
 		return referenceId;
 	}
 
-	public void setReferenceId(String referenceId) {
+	public void setReferenceId(int referenceId) {
 		this.referenceId = referenceId;
 	}
 
@@ -86,16 +89,25 @@ public class Message {
 		this.referenceUri = referenceUri;
 	}
 
+	public int getPartnerId() {
+		return partnerId;
+	}
+
+	public void setPartnerId(int partnerId) {
+		this.partnerId = partnerId;
+	}
+
 	@Override
 	public String toString() {
 		return "Message{" +
-			"entryId=" + entryId +
-			", entryUri='" + entryUri + '\'' +
+			"userId='" + userId + '\'' +
+			", entryId=" + entryId +
 			", date='" + date + '\'' +
 			", text='" + text + '\'' +
 			", reference='" + reference + '\'' +
-			", referenceId='" + referenceId + '\'' +
+			", referenceId=" + referenceId +
 			", referenceUri='" + referenceUri + '\'' +
+			", partnerId=" + partnerId +
 			'}';
 	}
 }
