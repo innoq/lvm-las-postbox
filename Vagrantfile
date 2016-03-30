@@ -8,6 +8,8 @@ Vagrant.configure(2) do |config|
 
   config.vm.network "forwarded_port", guest: 9000, host: 9000
 
+  config.vm.network "private_network", ip: "192.168.53.12"
+
   config.vm.synced_folder ".", "/vagrant", type: "rsync",
     rsync__exclude: [".git/", "node_modules/"]
 
